@@ -8,7 +8,7 @@ import folium
 import random
 import string
 
-apiKey = '5b3ce3597851110001cf6248d3e48705c5a74e9685b9a73396eff621'
+apiKey = 'XXXXXX'
 
 app = Flask(__name__, static_url_path='/templates')
 
