@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Tutorial{% endblock %}
+
+{% block content %}
+    <h1>Clear Maps Tutorial</h1>
+    <div>
+        <div>
+            <h3>Navigation Bar</h3>
+            <div>
+                <p>The navigation bar is found at the top of any page on the Clear Maps site and is used to go to a different page on the site. 
+                    You click the page you would like to go to and it will take you there.</p>
+                <img src="{{ url_for('static', filename='navigationbar.PNG') }}" alt="Image containing the navigation bar." class="border border-primary ">
+                <div class="space"></div>
+            </div>
+            <h3>Accessibility Page</h3>
+            <div>
+                <p>My site contains accessibility settings which may be helpful to enable to aid use of the site. 
+                    If you would like to check them out, please click the button below. 
+                    Once you have applied the desired settings, please return to this page using the navigation bar as described above.</p>
+                <a href="/accessibility" class="btn btn-warning" role="button">Click to go to Accessibility Page</a>
+                <div class="space"></div>
+            </div>
+            <h3>Login and Registration Pages</h3>
+            <div>
+                <h4>Registration</h4>
+                <p>The registration page is shown below. To view the mapping and journey pages, you must register an account. 
+                    The page has 4 boxes to enter a username, password, email and name. 
+                    The page will provide you with error messages and guide you through the process if something goes wrong.</p>
+                <img src="{{ url_for('static', filename='reg.PNG') }}" alt="Image containing the registration form." class="border border-primary ">
+                <div class="space"></div>
+
+                <h4>Login</h4>
+                <p>Once you have registered, you can login on this page. Please enter the same credentials as when you registered. 
+                    There is also a "forgot password" option if you need to reset your password.</p>
+                <img src="{{ url_for('static', filename='login.PNG') }}" alt="Image containing the login form." class="border border-primary ">
+                <div class="space"></div>
+
+                <h4>Forgot Password</h4>
+                <p>If you can't remember your password, please click "forgot password" on the login page. 
+                    You can then enter your email on the forgot password page and a new password will be emailed to you. 
+                    This password replaces your original password so you can use it to login with your old username. 
+                    Once logged in, please go to the profile page and change the temporary password issued to a new memorable one.</p>
+                <img src="{{ url_for('static', filename='forgotpass.PNG') }}" alt="Image containing the forgot password form." class="border border-primary ">
+                <div class="space"></div>
+
+            </div>
+            <h3>Mapping Page</h3>
+            <div>
+                <h4>Mapping</h4>
+                <p>This page is used to interact with the map, create routes between points and save journeys for easy access later.</p>
+                <ul class="list-unstyled">
+                    <li>To get started, select the textboxes and enter:</li>
+                    <ul>
+                        <li>Start Address and Postcode</li>
+                        <li>End Address and Postcode</li>
+                    </ul>
+                    <li>Then select the "Get Route" button to display the route on the map. A message will confirm whether this action has succeeded.</li>
+                </ul>
+                <p>The map below will update to display the first location you entered and a marker will be displayed on this point. 
+                    There will be a blue line leading away from the point, towards the destination which you would follow for the route to the destination.</p>
+                <p>After creating a few journeys, an autofill feature will show some previously used addresses 
+                    below the textbox you are typing in which you can select if you are going to that address to speed up location selection.</p>
+                <img src="{{ url_for('static', filename='getroute.PNG') }}" alt="Image containing the route form." class="border border-primary ">
+                <div class="space"></div>
+                <h4>Save Journey</h4>
+                <p>To open this feature, please select the "Toggle Save Journey Options" button. 
+                    This will display a few additional textboxes. To close this section, press the button again.</p>
+                <ul class="list-unstyled">
+                    <li>To add a new saved journey started, select the textboxes and enter:</li>
+                    <ul>
+                        <li>A memorable name for each addresses entered above</li>
+                        <li>Click on the checkbox if you would like to favourite this address (for use in the autofill feature)</li>
+                        <li>A memorable name for the journey between the two addresses. e.g. "Park Walk" or "Walk to town"</li>
+                    </ul>
+                </ul>
+                <p>Then select the "Save Journey" button. If there are any errors, they will be displayed, 
+                    otherwise, the section will close and the journey has been successfully saved.</p>
+                <img src="{{ url_for('static', filename='savejourney.PNG') }}" alt="Image containing the save journey form." class="border border-primary ">
+                <div class="space"></div>
+            </div>
+            <h3>Journey Management Page</h3>
+            <div>
+                <p>This page can be reached by clicking on the "Journey" option on the navigation bar. 
+                    It has a table which displays every journey you have saved on the map page. 
+                    You have management options beside the journey such as "Load Journey" and "Delete"</p>
+                <p class="h5">Load Journey</p>
+                <div>
+                    <p>When this button is pressed, the journey listed in the table beside the button will be loaded onto the map. 
+                        After pressing, you will be moved to the map page where you can view the journey.</p>
+                </div>
+                <p class="h5">Delete</p>
+                <div>
+                    <p>When this button is pressed, the journey listed in the table beside the button will be deleted. 
+                        After pressing, you will recieve a message asking you to confirm the deletion. If "OK" is selected, 
+                        the journey will be deleted. If "Cancel" is selected, the journey will not be deleted.</p>
+                    <img src="{{ url_for('static', filename='journeytable.PNG') }}" alt="Image containing the journey table." class="border border-primary ">
+                    <div class="space"></div>
+                </div>
+            </div>
+            <h3>Profile Page</h3>
+            <div>
+                <p>This page can be reached by clicking on the "Profile" option on the navigation bar.</p>
+                <p class="h5">Change Username</p>
+                <div>
+                    <p>This feature is used to update the username on your account. 
+                        You can enter a new desired username in the text box and press "Change". 
+                        A success / error message will be displayed based on the outcome of the change.</p>
+                </div>
+                <p class="h5">Change Password</p>
+                <div>
+                    <p>This feature is used to update the password on your account. 
+                        You must enter your old and new password in the text boxes and press "Change". The site will display a success / error message.</p>
+                    <img src="{{ url_for('static', filename='profile.PNG') }}" alt="Image containing the journey table." class="border border-primary ">
+                    <div class="space"></div>
+                </div>
+            </div>
+            
+
+            <h3>Log Out Button</h3>
+            <div>
+                <p>This button can be found on the far right of the navigation bar when logged in. It will log you out of the site and make the map, journeys and profile page inaccessible until you login again.</p>
+                <div class="space"></div>
+            </div>
+    </div>
+{% endblock %}

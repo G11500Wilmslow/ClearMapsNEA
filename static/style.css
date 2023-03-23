@@ -1,0 +1,17 @@
+.highcontrast{
+    background-color: black;
+    color: yellow;
+}
+.highcontrast .container .section nav{
+    background-color: black;
+}
+.highcontrast .container .section nav a, .highcontrast .container .section a.nav-link{
+   color: yellow;
+}
+.highcontrast table.table{
+    color: yellow;
+ }
+ .highcontrast table.table tr:hover{
+    color: yellow;
+ }
+ .space { margin:0; padding:0; height:50px; }

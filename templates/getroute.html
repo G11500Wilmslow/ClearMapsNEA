@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Map{% endblock %}
+
+{% block content %}
+    <h1>Mapping Page</h1>
+
+    <form action="" method="post" id="journeyform">
+        <div class="row">
+            <div class="col">
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label for="start">Select Start Address</label>
+                    </div>
+                    <div class="col-md-9">
+                        <select name="selectstart" id="selectstart" class="form-control">
+                            <option value="">Please select</option>
+                            {% for address in addressautofill %}
+                            <option value="{{address[0]}}" data-address="{{address[1]}}" data-postcode="{{address[2]}}">{{address[0]}} - {{address[1]}},{{address[2]}} </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label for="start">Start Address</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" name="start" id="start" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label for="start">Start Postcode</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" name="postcode" id="postcode" class="form-control">
+                    </div>
+                </div>
+                <div class="saveaddress" style="display: none;">
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label for="startname">Address Name</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" name="startname" id="startname" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label for="startfavourite">Mark as Favorite?</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="checkbox" name="startfavourite" id="startfavourite" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label for="journeyNameLabel">Journey Name</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" name="journeyName" id="journeyName" value="" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label for="start">Select End Address</label>
+                    </div>
+                    <div class="col-md-9">
+                        <select name="selectstart" id="selectend" class="form-control">
+                            <option value="">Please select</option>
+                            {% for address in addressautofill %}
+                            <option value="{{address[0]}}" data-address="{{address[1]}}" data-postcode="{{address[2]}}">{{address[0]}} - {{address[1]}},{{address[2]}} </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label for="start">End Address</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" name="end" id="end" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label for="start">End Postcode</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" name="endpostcode" id="endpostcode" class="form-control">
+                    </div>
+                </div>
+                <div class="saveaddress" style="display: none;">
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label for="endname">Address Name</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" name="endname" id="endname" value="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label for="endfavourite">Mark as Favorite?</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="checkbox" name="endfavourite" id="endfavourite" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col">
+                            <input type="button" value="Save Journey" id="savejourney" class="btn btn-info">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <input type="button" value="Get Route" id="getroute" class="btn btn-primary">
+                        <input type="button" id="showsavejourney" value="Toggle Save Journey Options" class="btn btn-success">
+                        <!-- <input type="button" value="Save Journey" id="savejourney" class="btn btn-info" style="display: none;"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-md-12">
+            <iframe src="/showmap" seamless width="100%" height="400" id="mapframe"></iframe>
+            
+        </div>
+    </div>
+{% endblock %}
